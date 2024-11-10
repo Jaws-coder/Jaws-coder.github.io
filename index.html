@@ -4,33 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Grid</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic grid layout for images */
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr); /* 6 images per row */
+      gap: 10px;
+      padding: 10px;
+    }
+    .image-block {
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .image-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    /* Fullscreen overlay style */
+    .fullscreen {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+    .fullscreen img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      font-size: 30px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+
   <div class="image-grid">
     <!-- 18 Image blocks -->
-    <div class="image-block"><img src="https://us.rule34.xxx/thumbnails/2366/thumbnail_272c0c593582aa9b41ee21645d68f1bf.jpg?10415767" alt="Image 1"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/1806/sample_5a8e0f8fbb26c4ca5f59076f00391d45.jpg?9901801" alt="Image 2"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/2257/sample_90a9dff83c8d06990bcb98cdaa467104.jpg?11132016" alt="Image 3"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//images/5503/6ca0e7a3f02f8c1deaef43c398fc7d9a.jpeg?10788806" alt="Image 4"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//images/2366/ff7e51748c333b1b41ef713ab01d02dd.jpeg?10415710" alt="Image 5"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//images/2075/ce42e8b1158ac05e235abcd2c36da179.png?10104213" alt="Image 6"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//images/2316/309e29b7b88a3e6bc62db6f569ef33f3.jpeg?9824378" alt="Image 7"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//images/513/1f9f9c2ca342567ead63304206e51387.jpeg?9364619" alt="Image 8"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7414/sample_a908b93195914d913c035bb200a3bcb9.jpg?8459878" alt="Image 9"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//images/7261/0ddf8e0ce4ddf9ddf6fde5093542c62b.jpeg?8291061" alt="Image 10"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//images/7256/57e418159a237d0b76b6dc6fd9fd7b3b.jpeg?8285410" alt="Image 11"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7297/sample_df34faadee459811a189aba9be404b29.jpg?8332475" alt="Image 12"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7297/sample_f78cda5f9bb27fcd6aae0c088277afcf.jpg?8332476" alt="Image 13"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7197/sample_cd780edfcd4a6307b3e2ad5e54736919.jpg?8206546" alt="Image 14"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7148/sample_b6b4752883ec5746a70dbc0f9da96913.jpg?8150699" alt="Image 15"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7146/sample_a958c1b3bfaf8638826fd529fb64401b.jpg?8147762" alt="Image 16"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx/thumbnails/7167/thumbnail_72f74a795ee858d1f4fdb235ef0ab52e.jpg?8171708" alt="Image 17"></div>
-    <div class="image-block"><img src="https://rule34xyz.b-cdn.net/posts/3676/3676650/3676650.picsmall.jpg" alt="Image 18"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7197/sample_cd780edfcd4a6307b3e2ad5e54736919.jpg?8206546" alt="Image 19"></div>
-    <div class="image-block"><img src="https://us.rule34.xxx//samples/7113/sample_15e9522e7060dc3b2c79be9cb020a150.jpg?8113544" alt="Image 20"></div>
-    <div class="image-block"><img src="https://rule34xyz.b-cdn.net/posts/3676/3676650/3676650.picsmall.jpg" alt="Image 21"></div>
-    <div class="image-block"><img src="https://rule34xyz.b-cdn.net/posts/3676/3676650/3676650.picsmall.jpg" alt="Image 22"></div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx/thumbnails/2366/thumbnail_272c0c593582aa9b41ee21645d68f1bf.jpg?10415767" alt="Image 1">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/1806/sample_5a8e0f8fbb26c4ca5f59076f00391d45.jpg?9901801" alt="Image 2">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/2257/sample_90a9dff83c8d06990bcb98cdaa467104.jpg?11132016" alt="Image 3">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//images/5503/6ca0e7a3f02f8c1deaef43c398fc7d9a.jpeg?10788806" alt="Image 4">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//images/2366/ff7e51748c333b1b41ef713ab01d02dd.jpeg?10415710" alt="Image 5">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//images/2075/ce42e8b1158ac05e235abcd2c36da179.png?10104213" alt="Image 6">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//images/2316/309e29b7b88a3e6bc62db6f569ef33f3.jpeg?9824378" alt="Image 7">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//images/513/1f9f9c2ca342567ead63304206e51387.jpeg?9364619" alt="Image 8">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/7414/sample_a908b93195914d913c035bb200a3bcb9.jpg?8459878" alt="Image 9">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//images/7261/0ddf8e0ce4ddf9ddf6fde5093542c62b.jpeg?8291061" alt="Image 10">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//images/7256/57e418159a237d0b76b6dc6fd9fd7b3b.jpeg?8285410" alt="Image 11">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/7297/sample_df34faadee459811a189aba9be404b29.jpg?8332475" alt="Image 12">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/7297/sample_f78cda5f9bb27fcd6aae0c088277afcf.jpg?8332476" alt="Image 13">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/7197/sample_cd780edfcd4a6307b3e2ad5e54736919.jpg?8206546" alt="Image 14">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/7148/sample_b6b4752883ec5746a70dbc0f9da96913.jpg?8150699" alt="Image 15">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx//samples/7146/sample_a958c1b3bfaf8638826fd529fb64401b.jpg?8147762" alt="Image 16">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://us.rule34.xxx/thumbnails/7167/thumbnail_72f74a795ee858d1f4fdb235ef0ab52e.jpg?8171708" alt="Image 17">
+    </div>
+    <div class="image-block" onclick="openFullscreen(this)">
+      <img src="https://rule34xyz.b-cdn.net/posts/3676/3676650/3676650.picsmall.jpg" alt="Image 18">
+    </div>
   </div>
+
+  <!-- Fullscreen Modal -->
+  <div id="fullscreen" class="fullscreen" onclick="closeFullscreen()">
+    <button class="close-btn">&times;</button>
+    <img id="fullscreen-img" src="" alt="Fullscreen Image">
+  </div>
+
+  <script>
+    // Function to open the image in fullscreen
+    function openFullscreen(element) {
+      var imgSrc = element.querySelector("img").src;
+      var fullscreenImg = document.getElementById("fullscreen-img");
+      fullscreenImg.src = imgSrc;
+      document.getElementById("fullscreen").style.display = "flex";
+    }
+
+    // Function to close the fullscreen view
+    function closeFullscreen() {
+      document.getElementById("fullscreen").style.display = "none";
+    }
+  </script>
+
 </body>
 </html>
