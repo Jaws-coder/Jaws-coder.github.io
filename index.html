@@ -1,14 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is a test page.</p>
-    <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="//cdn.classlink.com/production/launchpad/resources/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="//cdn.classlink.com/production/launchpad/resources/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="//cdn.classlink.com/production/launchpad/resources/images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="//cdn.classlink.com/production/launchpad/resources/images/favicon/manifest.json">
+    <link rel="mask-icon" href="//cdn.classlink.com/production/launchpad/resources/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdn.classlink.com/production/launchpad/resources/bootstrap-3.4.1/css/bootstrap.min.css?t=1731033263841" rel="stylesheet">
+    <link href="//cdn.classlink.com/production/launchpad/resources/font-awesome-4.5.0/css/font-awesome.css?t=1731033263841" rel="stylesheet">
+    <link href="//cdn.classlink.com/production/launchpad/css/login/login.css?t=1731033263841" rel="stylesheet">
+    <link href="//cdn.classlink.com/production/framework/stylesheets/cl-lp-loginscreen.css" rel="stylesheet">
+
+  </head>
+  <body class="login-bg">
+    <div class="navbar navbar-default navbar-fixed-top2 text-center">
+      <div style="min-height:34px; padding:2px;background:#fd0000;">
+        <span style="display:inline-block; margin-right:5px;">Please do not include @isd535.org or @rochesterschools.org when trying to log in.</span>
+      </div>
+    </div>
+
+    <div class="container login" id="login_form_action">
+      <div class="container1">
+        <div id="container-watermark" style="opacity:1; background-position: top right; margin: 0 auto;"></div>
+        <div class="heading">
+          <h1 style="color:#ffffff !important">RPS ClassLink Login</h1>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <form>
+              <div class="form-group username-container">
+                <input type="text" autofocus="" id="username" name="username" class="form-control" placeholder=" " required="required" aria-label="Username">
+                <span class="floating-label">Username</span>
+              </div>
+              <div class="form-group password-row-container">
+                <div class="form-group password-field password-container">
+                  <input type="password" class="form-control hideShowPassword-hidden" placeholder=" " name="password" id="password" autocapitalize="none" autocomplete="off" required="required" aria-label="Password">
+                  <span class="floating-label">Password</span>
+                </div>
+              </div>
+              <div class="form-group code-container" style="display:none;">
+                <input type="Text" class="form-control" id="code" name="code" placeholder=" " value="rochester" aria-label="Code">
+                <span class="floating-label">Code (optional)</span>
+              </div>
+              <input type="hidden" id="userdn" name="userdn" />
+              <div id="clre_captcha" class="col-md-offset-2"></div>
+              <button type="button" id="signin" name="signin" class="btn btn-primary btn-block btnlogin" data-loading-text="Please wait" aria-label="Sign In">Sign In</button>
+            </form>
+            <div class="bottom">
+              <a href="/resetpassword?scode=rochester" class="forgot" aria-label="Help, I forgot my password">Help, I forgot my password</a>
+            </div>
+            <div style="text-align: center;">
+              <h2 class="sign-in-services">Or sign in using:</h2>
+            </div>
+            <div class="social-link">
+              <a href="/quickcard?school_code=rochester&amp;custom_url=rochester" class="qrcode" id="login_qrcodelink" title="Sign in with Quickcard" aria-label="Sign in with your quick card">
+                <i class="default fa icon-qrcode-logins"></i><i class="hover fa icon-qrcode-logins-hover"></i><span class="sr-only">Sign in with Quickcard</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-login-footer">
+      <div class="cl-footer-logo-container">
+        <svg id="lp-cl-cloud-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 209.2 149.3">
+          <circle class="st1" cx="101.2" cy="88.3" r="57.3"/>
+          <path class="st0" d="M60.9,88.3c-8.2,9.3-0.1,13.7-0.1,13.7c0.3,0.2,0.6,0.3,0.9,0.4C60.5,97.4,60.4,92.7,60.9,88.3z"/>
+          <path class="st0" d="M114,100.3c-6.4,4.3-13.8,18.8-13.8,18.8h-3.9c2.5-5.5,4.1-10.1,5.1-13.8c-1,0.3-1.5,0.5-1.5,0.5c-7.7,2.6-15.5,4-22.4,4.1c7.3,10.8,20.5,12.8,20.5,12.8c18.6,2.5,32.8-7.7,40.4-15.1C122.7,98.9,114,100.3,114,100.3L114,100.3z"/>
+        </svg>
+        <a href="http://www.classlink.com/" class="cl-footer-text" rel="noopener noreferrer">ClassLink</a>
+      </div>
+      <div class="footer-link-container">
+        <a href="https://docs.classlink.com" target="_blank" class="lp-login-footer-link footer-link" rel="noopener noreferrer">Help<span class="fa fa-external-link footer-link-icon"></span></a>
+        <div class="lp-login-footer-bullet footer-bullet"><span class="dot"></span></div>
+        <a href="http://www.classlink.com/cdncheck" target="_blank" class="lp-login-footer-link footer-link" rel="noopener noreferrer">Browser Check<span class="fa fa-external-link footer-link-icon"></span></a>
+        <div class="lp-login-footer-bullet footer-bullet"><span class="dot"></span></div>
+        <a href="https://www.classlink.com/privacy" target="_blank" class="lp-login-footer-link footer-link last" rel="noopener noreferrer">Privacy<span class="fa fa-external-link footer-link-icon"></span></a>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="//cdn.classlink.com/production/launchpad/resources/require/require.js?t=1731033263841"></script>
+    <script type="text/javascript" src="//cdn.classlink.com/production/launchpad/optimize/main.js?t=1731033263841"></script>
+    <script type="text/javascript" src="//cdn.classlink.com/production/launchpad/optimize/otrack.js?t=1731033263841"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+    <script src="//cdn.classlink.com/production/launchpad/js/login_main.js?t=1731033263841"></script>
+  </body>
 </html>
