@@ -1,0 +1,11 @@
+#container-watermark {
+  background-image: url(//clouddrivecdn.classlink.com/BuildingLogo/2680/1567785269200-564e31b3830511a5bdc7dc54cb62d329.png);
+}
+
+body {
+  background: url(//filescdn.classlink.com/resources/tenants/1693/backgrounds/1567610626317-47584f1e276b61f1d3b20f2d797e92e2.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
