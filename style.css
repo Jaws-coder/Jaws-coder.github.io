@@ -1,11 +1,55 @@
-#container-watermark {
-  background-image: url(//clouddrivecdn.classlink.com/BuildingLogo/2680/1567785269200-564e31b3830511a5bdc7dc54cb62d329.png);
+/* Reset some styles for a cleaner layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body styling */
 body {
-  background: url(//filescdn.classlink.com/resources/tenants/1693/backgrounds/1567610626317-47584f1e276b61f1d3b20f2d797e92e2.png) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Container for the image grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 300px); /* 6 columns */
+  gap: 20px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1920px;
+}
+
+/* Style for each image block */
+.image-block {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Add a hover effect to image blocks */
+.image-block:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.image-block img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Add a zoom effect on hover */
+.image-block:hover img {
+  transform: scale(1.1);
 }
