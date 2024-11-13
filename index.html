@@ -15,19 +15,15 @@
     <input type="text" id="username" placeholder="Username"><br><br>
     <input type="password" id="password" placeholder="Password"><br><br>
     <button onclick="authenticate()">Login</button>
-    <p id="error-msg">Incorrect Username or Password</p>
+    <p id="error-msg" style="display: none;">Incorrect Username or Password</p>
   </div>
 </div>
 
 <!-- Content to show after authentication -->
-<div id="content">
+<div id="content" style="display: none;">
   <!-- Image Grid -->
   <div class="image-grid">
-    <!-- Add all your image blocks here -->
     <div class="image-block" onclick="openFullscreen(0)">
-      <img src="https://us.rule34.xxx/thumbnails/2366/thumbnail_272c0c593582aa9b41ee21645d68f1bf.jpg?10415767" alt="Image 1">
-    </div>
-<div class="image-block" onclick="openFullscreen(0)">
       <img src="https://us.rule34.xxx/thumbnails/2366/thumbnail_272c0c593582aa9b41ee21645d68f1bf.jpg?10415767" alt="Image 1">
     </div>
     <div class="image-block" onclick="openFullscreen(1)">
@@ -39,37 +35,8 @@
     <div class="image-block" onclick="openFullscreen(3)">
       <img src="https://us.rule34.xxx/images/5503/6ca0e7a3f02f8c1deaef43c398fc7d9a.jpeg?10788806" alt="Image 4">
     </div>
-    <div class="image-block" onclick="openFullscreen(4)">
-      <img src="https://us.rule34.xxx/images/2366/ff7e51748c333b1b41ef713ab01d02dd.jpeg?10415710" alt="Image 5">
-    </div>
-    <div class="image-block" onclick="openFullscreen(5)">
-      <img src="https://us.rule34.xxx/images/2075/ce42e8b1158ac05e235abcd2c36da179.png?10104213" alt="Image 6">
-    </div>
-    <div class="image-block" onclick="openFullscreen(6)">
-      <img src="https://us.rule34.xxx/images/2316/309e29b7b88a3e6bc62db6f569ef33f3.jpeg?9824378" alt="Image 7">
-    </div>
-    <div class="image-block" onclick="openFullscreen(7)">
-      <img src="https://us.rule34.xxx/images/513/1f9f9c2ca342567ead63304206e51387.jpeg?9364619" alt="Image 8">
-    </div>
-    <div class="image-block" onclick="openFullscreen(8)">
-      <img src="https://us.rule34.xxx/samples/7414/sample_a908b93195914d913c035bb200a3bcb9.jpg?8459878" alt="Image 9">
-    </div>
-    <div class="image-block" onclick="openFullscreen(9)">
-      <img src="https://us.rule34.xxx/images/7261/0ddf8e0ce4ddf9ddf6fde5093542c62b.jpeg?8291061" alt="Image 10">
-    </div>
-    <div class="image-block" onclick="openFullscreen(10)">
-      <img src="https://us.rule34.xxx/images/7256/57e418159a237d0b76b6dc6fd9fd7b3b.jpeg?8285410" alt="Image 11">
-    </div>
-    <div class="image-block" onclick="openFullscreen(11)">
-      <img src="https://us.rule34.xxx/samples/7297/sample_df34faadee459811a189aba9be404b29.jpg?8332475" alt="Image 12">
-    </div>
-    <div class="image-block" onclick="openFullscreen(12)">
-      <img src="https://us.rule34.xxx/samples/7297/sample_f78cda5f9bb27fcd6aae0c088277afcf.jpg?8332476" alt="Image 13">
-    </div>
-    <div class="image-block" onclick="openFullscreen(13)">
-      <img src="https://us.rule34.xxx/samples/7197/sample_cd780edfcd4a6307b3e2ad5e54736919.jpg?8206546" alt="Image 14">
-    </div>
-    <div class
+    <!-- Add other images as needed -->
+  </div>
 
   <!-- Fullscreen Modal -->
   <div id="fullscreen" class="fullscreen">
