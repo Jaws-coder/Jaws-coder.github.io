@@ -8,8 +8,19 @@
 </head>
 <body>
 
+<div id="auth-screen">
+  <div class="auth-container">
+    <h2>Enter Username and Password</h2>
+    <input type="text" id="username" placeholder="Username"><br><br>
+    <input type="password" id="password" placeholder="Password"><br><br>
+    <button onclick="authenticate()">Login</button>
+    <p id="error-msg">Incorrect Username or Password</p>
+  </div>
+</div>
+
+<div id="content">
+  <!-- Image Grid -->
   <div class="image-grid">
-    <!-- Image blocks, each with a click event to open the fullscreen view -->
     <div class="image-block" onclick="openFullscreen(0)">
       <img src="https://us.rule34.xxx/thumbnails/2366/thumbnail_272c0c593582aa9b41ee21645d68f1bf.jpg?10415767" alt="Image 1">
     </div>
@@ -65,6 +76,7 @@
       <img src="https://rule34xyz.b-cdn.net/posts/3676/3676650/3676650.picsmall.jpg" alt="Image 18">
     </div>
   </div>
+  
 
   <!-- Fullscreen Modal -->
   <div id="fullscreen" class="fullscreen">
@@ -73,7 +85,8 @@
     <img id="fullscreen-img" src="" alt="Fullscreen Image">
     <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
   </div>
+</div>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
