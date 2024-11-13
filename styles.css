@@ -19,11 +19,6 @@
   display: none;
 }
 
-/* Hide content initially */
-#content {
-  display: none;
-}
-
 /* Styling for the image grid */
 .image-grid {
   display: grid;
