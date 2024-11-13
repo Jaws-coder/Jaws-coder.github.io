@@ -1,9 +1,36 @@
-let currentImageIndex = 0;
-const images = [
-  "https://us.rule34.xxx/thumbnails/2366/thumbnail_272c0c593582aa9b41ee21645d68f1bf.jpg?10415767",
-  "https://us.rule34.xxx//samples/1806/sample_5a8e0f8fbb26c4ca5f59076f00391d45.jpg?9901801",
-  "https://us.rule34.xxx//samples/2257/sample_90a9dff83c8d06990bcb98cdaa467104.jpg?11132016",
-  "https://us.rule34.xxx//images/5503/6ca0e7a3f02f8c1deaef43c398fc7d9a.jpeg?10788806",
-  "https://us.rule34.xxx//images/2366/ff7e51748c333b1b41ef713ab01d02dd.jpeg?10415710",
-  "https://us
+// Authentication function
+function authenticate() {
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const errorMsg = document.getElementById("error-msg");
 
+  if (username === "Poopy" && password === "Head") {
+    document.getElementById("auth-screen").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    errorMsg.style.display = "block";
+  }
+}
+
+// Fullscreen image viewing functions
+function openFullscreen(index) {
+  const fullscreen = document.getElementById("fullscreen");
+  const fullscreenImg = document.getElementById("fullscreen-img");
+
+  const images = document.querySelectorAll(".image-block img");
+  fullscreenImg.src = images[index].src;
+  fullscreen.style.display = "flex";
+}
+
+function closeFullscreen() {
+  document.getElementById("fullscreen").style.display = "none";
+}
+
+function changeSlide(direction) {
+  const images = document.querySelectorAll(".image-block img");
+  const fullscreenImg = document.getElementById("fullscreen-img");
+  let currentIndex = Array.from(images).findIndex(img => img.src === fullscreenImg.src);
+
+  currentIndex = (currentIndex + direction + images.length) % images.length;
+  fullscreenImg.src = images[currentIndex].src;
+}
