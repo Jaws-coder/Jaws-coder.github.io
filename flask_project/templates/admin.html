@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <a href="/admin/logout" class="logout-button">Logout</a>
+    </header>
+    <div class="container">
+        <div class="tabs">
+            <button onclick="showTab('site1')">Site 1</button>
+            <button onclick="showTab('site2')">Site 2</button>
+            <button onclick="showTab('site3')">Site 3</button>
+        </div>
+        <div id="site1" class="tab-content">
+            <h2>Site 1 Users</h2>
+            <ul>
+                {% for email, password in site1_users %}
+                <li>Email: {{ email }} - Password: {{ password }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="site2" class="tab-content" style="display: none;">
+            <h2>Site 2 Users</h2>
+            <ul>
+                {% for email, password in site2_users %}
+                <li>Email: {{ email }} - Password: {{ password }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="site3" class="tab-content" style="display: none;">
+            <h2>Site 3 Users</h2>
+            <ul>
+                {% for email, password in site3_users %}
+                <li>Email: {{ email }} - Password: {{ password }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <script>
+        function showTab(site) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            document.getElementById(site).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
